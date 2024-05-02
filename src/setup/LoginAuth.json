@@ -1,0 +1,151 @@
+{
+  "cookies": [
+    {
+      "name": "arm_jwt_refresh",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ3NDM1NDAsImlhdCI6MTcxNDY1NzE0MCwidXNlcl9pZCI6IjAxSFZSN0NTVzY3ODlZSzZYNVZCMFhCWlE5Iiwib2ZmaWNlX2lkIjoiMDFIUTUxUENDQkRTV1hTOUtYV0ZIQVFKRlAiLCJ1aWQiOiIxMDA2MDIxNjUwODY2NTA3Nzc2In0.Ofb9TEs8MBgJXypyruoX8pxEnoHw2zV2OfnKwHGy724",
+      "domain": ".receivable.test.mfw.work",
+      "path": "/api/v1/sessions/refresh",
+      "expires": 1714743540.435982,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "arm_jwt_access",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ3MDAzNDAsImlhdCI6MTcxNDY1NzE0MCwidXNlcl9pZCI6IjAxSFZSN0NTVzY3ODlZSzZYNVZCMFhCWlE5Iiwib2ZmaWNlX2lkIjoiMDFIUTUxUENDQkRTV1hTOUtYV0ZIQVFKRlAiLCJ1aWQiOiIxMDA2MDIxNjUwODY2NTA3Nzc2In0.mNngxFWTwfGG08w0Q_c8612JnufnZGQIbQHxdPwShdA",
+      "domain": ".receivable.test.mfw.work",
+      "path": "/api",
+      "expires": 1714743540.43589,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "last_used_application",
+      "value": "piaW65GaY6P7RwE%2BjaI0A%2BWgh0Vz1lAWLuRuy%2Bs%2B5CitmdrANXNgsJsONCUihaPHCmkQmPoY3u9nl7RTnGJ9cf%2ByLEshNrThFpJWax3Oq4Xt1RWvMMmcJtD3au5MVHtD1VfDeKc6NUQ7khGNJO4kIsRvJusLiNG%2Fb2Pthu%2BUBVxsoyPMgg%3D%3D--05rIj16TBYXD029i--MDGjcPMWgqGlyyYnS1EpYg%3D%3D",
+      "domain": "id.test.mfw.work",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "icma",
+      "value": "true",
+      "domain": "id.test.mfw.work",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.2.864542632.1714657133",
+      "domain": ".mfw.work",
+      "path": "/",
+      "expires": 1749217137.550446,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.2.334331850.1714657133",
+      "domain": ".mfw.work",
+      "path": "/",
+      "expires": 1714743537,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat_UA-153534803-3",
+      "value": "1",
+      "domain": ".mfw.work",
+      "path": "/",
+      "expires": 1714657193,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "sih",
+      "value": "Tehy9URo5Y2VxrzMBtHp5p42EOvYKunTqfoWjnQFjEZtTBuco1srD9%2FEhKoL8BiTrdiIDEuCTrSU10qVPMeTdDO0wARt1AEKJMcxSrclyCapK3TJ0c4YhLVJlKoKtyv1WL9cRhmswWvqLsAn97ZDm10e48vvkaB2%2B1UjSMv%2BYGfKWdrMh38gxJUNmCTjSCB2MJCRjDPR8kL5hjoEUKojqn1hoMMawGmtY8gsfme%2FoszIpuwFngN5QEFOSg%2F6RcSWfQdWzIkNbWxl4VDCDBfu%2B8GsoWyKjYPfiO7c9xe%2FGx0rkiPDlZYwO275m%2B0rI1CTD%2BxLQpMBY3scwoDSgTPfXNKjuRyiqoHv2aUEnxfjE0cHFw1OX1JPSiIy8myqcBbwNFZBNOjyVFUcPA1Dr8JHjLx5Gh0HUYzLNXz4h7ub8SC1H1horqa1Pj5qYjzLPxdrVA%3D%3D--swnxxoJbj1iQPl0K--Q0VbxeH2cC1IV0LZMyHRkQ%3D%3D",
+      "domain": "id.test.mfw.work",
+      "path": "/",
+      "expires": 1749217134.951568,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "mfid",
+      "value": "true",
+      "domain": ".test.mfw.work",
+      "path": "/",
+      "expires": 1717335534.951803,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_mfid_session",
+      "value": "1ad05628823ff999d27458866d3454e8",
+      "domain": "id.test.mfw.work",
+      "path": "/",
+      "expires": 1717249137.99741,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "promotion_page_visited",
+      "value": "true",
+      "domain": "id.test.mfw.work",
+      "path": "/",
+      "expires": 1730554736.682651,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "arm_wf_access",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ3MDAzNDAsImlhdCI6MTcxNDY1NzE0MCwidXNlcl9pZCI6IjAxSFZSN0NTVzY3ODlZSzZYNVZCMFhCWlE5Iiwib2ZmaWNlX2lkIjoiMDFIUTUxUENDQkRTV1hTOUtYV0ZIQVFKRlAiLCJ1aWQiOiIxMDA2MDIxNjUwODY2NTA3Nzc2In0.mNngxFWTwfGG08w0Q_c8612JnufnZGQIbQHxdPwShdA",
+      "domain": ".test.mfw.work",
+      "path": "/",
+      "expires": 1714743540.43593,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://receivable.test.mfw.work",
+      "localStorage": [
+        {
+          "name": "_arm_store",
+          "value": "{\"auth\":{\"authenticated\":true,\"csrfToken\":\"1703540ebdf6e691a2e5b25e82086ae3d565578a8fff9753f412adf8b66a230a\",\"isAgentLogin\":false},\"route\":{\"nextRoute\":null},\"ui\":{\"locale\":\"ja\"}}"
+        },
+        {
+          "name": "_arm_cross_tab_event",
+          "value": "{\"name\":\"auth/COMPLETE_AUTHENTICATION\",\"data\":\"1703540ebdf6e691a2e5b25e82086ae3d565578a8fff9753f412adf8b66a230a\",\"timestamp\":1714657140737}"
+        },
+        {
+          "name": "apc_user_id",
+          "value": "01HVR7KAZB6BVFY94P7G51C0VD"
+        },
+        {
+          "name": "apc_session",
+          "value": "{\"id\":\"3e89c34c-e515-4369-af6b-d4fe7a0dc7af\",\"timestamp\":1714657141471,\"duration\":1800000,\"userId\":\"01HVR7KAZB6BVFY94P7G51C0VD\",\"lastEventTimestamp\":1714657142038}"
+        },
+        {
+          "name": "apc_local_id",
+          "value": "6cae3c21-e1d3-4b8e-a5ce-1f9e1cdcebb2"
+        }
+      ]
+    }
+  ]
+}
