@@ -14,7 +14,7 @@ require('dotenv').config();
  */
 export default defineConfig({
   timeout: 60000,
-  testDir: './RegressionTests/',
+  testDir: './RegressionTests/Common',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -53,7 +53,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'],
       storageState:"./src/setup/LoginAuth.json",
       headless: false,
-      //viewport:{width:1440,height:900} 
+      viewport:{width:1440,height:900} 
     },
     },
 
