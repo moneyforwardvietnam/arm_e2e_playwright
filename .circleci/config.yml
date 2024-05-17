@@ -1,0 +1,16 @@
+ version: 2.1
+ jobs:
+   build:
+     docker:
+       - image: mcr.microsoft.com/playwright:v1.40.0-jammy
+      resource_class: medium 
+     steps:
+       - checkout
+       - run: npm install
+       - run: npx playwright install --with-deps
+       - run:
+           name: "Run the test"
+           command: npx playwright test --config=./playwright.config.js
+   build:
+     jobs:
+       - build
