@@ -17,4 +17,8 @@ jobs:
           command: npx playwright install --with-deps
       - run:
           name: Playwright exec
-          command: npx playwright test          
+          command: npx playwright test
+workflows:
+  run_e2e_test:
+    jobs:
+      - run-test          
