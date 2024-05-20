@@ -26,4 +26,7 @@ jobs:
 workflows:
   run_e2e_test:
     jobs:
-      - run-test          
+      - run-test
+          filters:
+            branches:
+              only: ARM-6546-CommonFunction-CircleCI-integration

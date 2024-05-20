@@ -39,9 +39,9 @@ export default defineConfig({
     trace: "on",
     video: "on",
     screenshot: "only-on-failure",
-    proxy: {
-      server: '27.71.207.82:3128',
-  }
+  //   proxy: {
+  //     server: '27.71.207.82:3128',
+  // }
   },
   /* Configure projects for major browsers */
   projects: [
