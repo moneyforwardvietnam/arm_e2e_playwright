@@ -1,11 +1,12 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@5.1.0
+
 jobs:
   run-test:
-    circleci_ip_ranges: true
-    docker:
-      - image: mcr.microsoft.com/playwright:v1.40.0-jammy
-    resource_class: medium
+    machine: true
+    resource_class: moneyforwardvietnam/qa-runner
 
     steps:
       - checkout
@@ -21,8 +22,6 @@ jobs:
       - store_artifacts:
           path: ./playwright-report
           destination: playwright-report-first
-      - store_artifacts:
-          path: /tmp/artifacts          
 workflows:
   run_e2e_test:
     jobs:
