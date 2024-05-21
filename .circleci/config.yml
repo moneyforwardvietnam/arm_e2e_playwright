@@ -4,6 +4,9 @@ orbs:
   node: circleci/node@5.1.0
 
 jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.40.0-jammy
   run-test:
     machine: true
     resource_class: moneyforwardvietnam/qa-runner
