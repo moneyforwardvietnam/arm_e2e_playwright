@@ -9,6 +9,7 @@ jobs:
     resource_class: moneyforwardvietnam/qa-runner
 
     steps:
+      - node/install
       - checkout
       - run:
           name: Install Dependencies
