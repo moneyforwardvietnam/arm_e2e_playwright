@@ -37,8 +37,8 @@ export class LoginPage {
         console.log('Password was entered')
         await this.signIn.click()
         console.log('SignIn button was clicked')
-        await this.noThanks.click()
-        console.log('No Thanks button was clicked')
+        //await this.noThanks.click()
+        //console.log('No Thanks button was clicked')
         await this.page.waitForURL(baseURL+'/reports/invoice_balances',{ timeout: 90000 });
         console.log('Successfully logged in to '+baseURL)
     }    
