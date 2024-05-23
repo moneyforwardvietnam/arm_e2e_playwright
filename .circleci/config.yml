@@ -1,0 +1,39 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1.0
+
+jobs:
+  run-test:
+    machine: true
+    resource_class: moneyforwardvietnam/qa-runner
+
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Playwright browser install
+          command: npx playwright install --with-deps
+      - run:
+          name: Playwright exec
+          command: npx playwright test --config=./playwright.config.ts
+      - store_artifacts:
+          path: ./test-results
+
+workflows:
+  run-e2e-test:
+    triggers:
+      - schedule:
+          cron: "15 12 * * *"  # This cron expression runs the job daily at 12:15 PM UTC (5:45 PM IST)
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - run-test:
+          filters:
+            branches:
+              only: main

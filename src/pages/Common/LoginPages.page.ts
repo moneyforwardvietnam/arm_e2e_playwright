@@ -37,9 +37,16 @@ export class LoginPage {
         console.log('Password was entered')
         await this.signIn.click()
         console.log('SignIn button was clicked')
-        await this.noThanks.click()
-        console.log('No Thanks button was clicked')
-        await this.page.waitForURL(baseURL+'/reports/invoice_balances',{ timeout: 90000 });
+
+        await this.page.waitForLoadState('load'); // Waits for the page to fully load        
+        if (await this.noThanks.isVisible()) {
+            await this.noThanks.click();
+            console.log('No Thanks button was clicked');
+        } else {
+            console.log('No Thanks button was not found');
+        }
+        
+        await this.page.waitForURL(baseURL+'/reports/invoice_balances',{ timeout: 10000 });
         console.log('Successfully logged in to '+baseURL)
     }    
     async logout(){

@@ -6,14 +6,21 @@ import dotenv from 'dotenv';
  * https://github.com/motdotla/dotenv
  */
 require('dotenv').config();
- dotenv.config({
-   path: './src/env/staging.env'
- });
+dotenv.config({
+  path: './src/env/staging.env'
+});
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
   timeout: 60000,
+  globalTimeout: 600000,
+  expect: {
+      timeout: 10000,
+      toMatchSnapshot: {
+          maxDiffPixels: 10,
+      },
+  },
   testDir: './RegressionTests/Common',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -23,9 +30,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   // workers: process.env.CI ? 1 : undefined,
-  workers: 1,
+  workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter:[['html'],['allure-playwright']],
+  reporter: [['html'], ['allure-playwright'],['junit', { outputFile: 'test-results/junit-report.xml' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -36,13 +43,16 @@ export default defineConfig({
       password: 'TIEfI2ArXBqt'
     },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on",
-    video: "on",
+    trace: "retain-on-failure",
+    video: "retain-on-failure",
     screenshot: "only-on-failure",
+      proxy: {
+        server: '27.71.207.82:3128',
+    }
   },
   /* Configure projects for major browsers */
   projects: [
-    { 
+    {
       name: "setup",
       testDir: "./",
       testMatch: "global-setup.ts",
@@ -50,11 +60,12 @@ export default defineConfig({
     {
       name: 'chromium',
       dependencies: ["setup"],
-      use: { ...devices['Desktop Chrome'],
-      storageState:"./src/setup/LoginAuth.json",
-      headless: false,
-      viewport:{width:1440,height:900} 
-    },
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: "./src/setup/LoginAuth.json",
+        headless: true,
+        viewport: { width: 1440, height: 900 }
+      },
     },
 
     // {
