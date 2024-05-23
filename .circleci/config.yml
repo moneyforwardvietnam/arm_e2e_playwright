@@ -51,7 +51,15 @@ jobs:
           path: ./playwright-report
           destination: playwright-report-first
 workflows:
-  run_e2e_test:
+  version: 2
+  run-e2e-test:
+    triggers:
+      - schedule:
+          cron: "45 10 * * *"  # This cron expression runs the job daily at 10:45 AM UTC (4:15 PM IST)
+          filters:
+            branches:
+              only:
+                - ARM-6546-CommonFunction-CircleCI-integration
     jobs:
       - run-test:
           filters:
