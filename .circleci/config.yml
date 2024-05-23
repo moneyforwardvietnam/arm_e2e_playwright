@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1.0
+  jq: circleci/jq@2.2.0  
 
 jobs:
   run-test:
@@ -11,6 +12,7 @@ jobs:
     steps:
       - node/install
       - checkout
+      - jq/install
       - run:
           name: Install Dependencies
           command: npm install
@@ -46,8 +48,8 @@ jobs:
             echo "File Path: ./test-results/junit-report.xml"
             trcli -n -h "https://moneyforward.tmxtestrail.com" --project $PROJECT --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE JST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
       - store_artifacts:
-          path: ./playwright-report
-          destination: playwright-report-first
+          path: ./test-results
+
 workflows:
   run_e2e_test:
     jobs:
