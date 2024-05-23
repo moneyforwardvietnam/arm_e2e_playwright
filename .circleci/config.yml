@@ -18,8 +18,29 @@ jobs:
           name: Playwright browser install
           command: npx playwright install --with-deps
       - run:
+          name: Install pip
+          command: |
+            python3 --version
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python3 get-pip.py
+      - run:
+          name: Install TestRail CLI
+          command: python3 -m pip install trcli
+      - run:
           name: Playwright exec
           command: npx playwright test --config=./playwright.config.ts
+      - run:
+          name: Generate Test Execution Date and Time
+          command: |
+            export CURRENT_DATE_TIME=$(date -d "9 hours" +'%Y-%m-%d %H:%M:%S')
+            echo "Current Date and Time is = $CURRENT_DATE_TIME"
+            echo "export REPORT_GENERATED_DATE=\"$CURRENT_DATE_TIME\" " >> $BASH_ENV
+      - run:
+          name: Upload Report to Test Rail
+          command: |
+            echo "Uploading Report to Test Rail"
+            source "$BASH_ENV"
+            trcli -n -h "https://moneyforward.tmxtestrail.com" --project $PROJECT --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE JST" -f "./test-results/junit-report.xml" --suite-name "Functional Test"
       - store_artifacts:
           path: ./playwright-report
           destination: playwright-report-first
