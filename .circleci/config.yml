@@ -27,7 +27,7 @@ workflows:
   run-e2e-test:
     triggers:
       - schedule:
-          cron: "30 12 * * *"  # This cron expression runs the job daily at 12:30 PM UTC (6 PM IST)
+          cron: "15 12 * * *"  # This cron expression runs the job daily at 12:15 PM UTC (5:45 PM IST)
           filters:
             branches:
               only:
