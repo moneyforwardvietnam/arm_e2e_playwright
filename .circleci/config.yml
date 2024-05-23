@@ -40,6 +40,10 @@ jobs:
           command: |
             echo "Uploading Report to Test Rail"
             source "$BASH_ENV"
+            echo "Project: $PROJECT"
+            echo "Username: $TESTRAIL_USERNAME"
+            echo "Report Date: $REPORT_GENERATED_DATE"
+            echo "File Path: ./test-results/junit-report.xml"
             trcli -n -h "https://moneyforward.tmxtestrail.com" --project $PROJECT --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE JST" -f "./test-results/junit-report.xml" --suite-name "Functional Test"
       - store_artifacts:
           path: ./playwright-report
