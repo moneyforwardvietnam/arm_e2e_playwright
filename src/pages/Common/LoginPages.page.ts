@@ -37,8 +37,7 @@ export class LoginPage {
         console.log('Password was entered')
         await this.signIn.click()
         console.log('SignIn button was clicked')
-        // await this.noThanks.click()
-        // console.log('No Thanks button was clicked')
+
         await this.page.waitForLoadState('load'); // Waits for the page to fully load        
         if (await this.noThanks.isVisible()) {
             await this.noThanks.click();
