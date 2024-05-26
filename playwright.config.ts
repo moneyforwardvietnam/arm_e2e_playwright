@@ -21,9 +21,9 @@ export default defineConfig({
           maxDiffPixels: 10,
       },
   },
-  testDir: './RegressionTests/Common',
+  testDir: './RegressionTests/TransactionsMenu/Opportunity/',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -44,11 +44,11 @@ export default defineConfig({
     },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
-    video: "retain-on-failure",
+    video: "on",
     screenshot: "only-on-failure",
-      proxy: {
-        server: '27.71.207.82:3128',
-    }
+    //   proxy: {
+    //     server: '27.71.207.82:3128',
+    // }
   },
   /* Configure projects for major browsers */
   projects: [
@@ -63,7 +63,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         storageState: "./src/setup/LoginAuth.json",
-        headless: true,
+        headless: false,
         viewport: { width: 1440, height: 900 }
       },
     },
