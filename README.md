@@ -5,3 +5,9 @@ Install Playwright
 
 Update Latest version
 > npm install -D @playwright/test@latest
+
+Playwright Report
+> npx playwright show-report
+
+Allure report
+> npx allure serve allure-results
