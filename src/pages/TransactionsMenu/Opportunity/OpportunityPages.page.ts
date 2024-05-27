@@ -133,7 +133,6 @@ export class OpportunityPage {
         this.ClientDetail = this.page.locator('.list-item__content').first()
     }
     async NavigateToOpportunity() {
-        await this.page.goto(baseURL);
         await this.OpportunityMenu.click();
         await this.page.waitForURL(baseURL+'/transactions/opportunities',{ timeout: 60000 });
     }
