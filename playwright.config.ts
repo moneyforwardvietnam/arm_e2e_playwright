@@ -23,7 +23,7 @@ export default defineConfig({
   },
   testDir: './RegressionTests/Common',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -46,9 +46,9 @@ export default defineConfig({
     trace: "retain-on-failure",
     video: "retain-on-failure",
     screenshot: "only-on-failure",
-      proxy: {
-        server: '27.71.207.82:3128',
-    }
+    //   proxy: {
+    //     server: '27.71.207.82:3128',
+    // }
   },
   /* Configure projects for major browsers */
   projects: [
@@ -63,7 +63,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         storageState: "./src/setup/LoginAuth.json",
-        headless: true,
+        headless: false,
         viewport: { width: 1440, height: 900 }
       },
     },

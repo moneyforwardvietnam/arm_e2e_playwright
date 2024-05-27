@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/OpportunityPages.page'
+
 const PlaceHolder = '選択してください'  //PlaceHolder for input when its empty
 
 test('C116609_Verify_initial_UI_of_opportunity_create_screen', async ({ page }) => {
