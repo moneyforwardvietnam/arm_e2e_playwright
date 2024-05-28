@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Generate Test Execution Date and Time
           command: |
-            export CURRENT_DATE_TIME=$(date -d "9 hours" +'%Y-%m-%d %H:%M:%S')
+            export CURRENT_DATE_TIME=$(date -d "5 hours 30 minutes" +'%Y-%m-%d %H:%M:%S')
             echo "Current Date and Time is = $CURRENT_DATE_TIME"
             echo "export REPORT_GENERATED_DATE=\"$CURRENT_DATE_TIME\" " >> $BASH_ENV
       - run:
@@ -44,7 +44,7 @@ jobs:
             echo "Username: $TESTRAIL_USERNAME"
             echo "Report Date: $REPORT_GENERATED_DATE"
             echo "File Path: ./test-results/junit-report.xml"
-            trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username "alam.shakir@moneyforward.co.jp" --password "Info@1234" parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE JST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
+            trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username "alam.shakir@moneyforward.co.jp" --password "Info@1234" parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
       - store_artifacts:
           path: ./playwright-report
           destination: playwright-report-first
