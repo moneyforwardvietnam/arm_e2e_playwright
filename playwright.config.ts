@@ -14,13 +14,13 @@ dotenv.config({
  */
 export default defineConfig({
   timeout: 60000,
-  globalTimeout: 60000,
-  expect: {
-      timeout: 10000,
-      toMatchSnapshot: {
-          maxDiffPixels: 10,
-      },
-  },
+  // globalTimeout: 120000,
+  // expect: {
+  //     timeout: 10000,
+  //     toMatchSnapshot: {
+  //         maxDiffPixels: 10,
+  //     },
+  // },
   testDir: './RegressionTests/Common',
   /* Run tests in files in parallel */
   fullyParallel: false,
