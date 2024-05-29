@@ -14,7 +14,7 @@ dotenv.config({
  */
 export default defineConfig({
   timeout: 60000,
-  globalTimeout: 600000,
+  globalTimeout: 60000,
   expect: {
       timeout: 10000,
       toMatchSnapshot: {
