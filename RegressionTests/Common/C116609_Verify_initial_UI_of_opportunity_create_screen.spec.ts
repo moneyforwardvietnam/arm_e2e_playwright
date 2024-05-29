@@ -9,6 +9,7 @@ test('C116609_Verify_initial_UI_of_opportunity_create_screen', async ({ page }) 
   const opportunityPage = new OpportunityPage(page);
   await opportunityPage.NavigateToOpportunity();
   await opportunityPage.NewOpportunity();
+  console.log('C116609_Verify_initial_UI_of_opportunity_create_screen - Started');
   //Label check
   await expect(opportunityPage.ClientLabel).toHaveText('取引先1');
   await expect(opportunityPage.ClientDepartmentLabel).toHaveText('取引先部門 任意');
