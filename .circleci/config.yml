@@ -35,6 +35,7 @@ jobs:
             export CURRENT_DATE_TIME=$(date -d "5 hours 30 minutes" +'%Y-%m-%d %H:%M:%S')
             echo "Current Date and Time is = $CURRENT_DATE_TIME"
             echo "export REPORT_GENERATED_DATE=\"$CURRENT_DATE_TIME\" " >> $BASH_ENV
+          when: always  
       - run:
           name: Upload Report to Test Rail
           command: |
@@ -45,7 +46,8 @@ jobs:
             echo "Password: $TESTRAIL_PASSWORD"
             echo "Report Date: $REPORT_GENERATED_DATE"
             echo "File Path: ./test-results/junit-report.xml"
-            trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml"
+            trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
+          when: always  
       - store_artifacts:
           path: ./playwright-report
           destination: playwright-report-first

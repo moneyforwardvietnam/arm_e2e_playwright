@@ -10,5 +10,5 @@ test('C164794_Navigation', async ({ page }) => {
   await page.getByRole('menuitem', { name: '売上' }).click();
   await page.getByRole('menuitem', { name: '案件' }).click();
   await page.getByRole('menuitem', { name: '見積書' }).click();
-  await page.getByRole('menuitem', { name: '設定' }).click();
+  await page.getByRole('menuitem', { name: '設定1' }).click();
 });
