@@ -18,20 +18,41 @@ jobs:
           name: Playwright browser install
           command: npx playwright install --with-deps
       - run:
+          name: Install pip
+          command: |
+            python3 --version
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python3 get-pip.py
+      - run:
+          name: Install TestRail CLI
+          command: python3 -m pip install trcli
+      - run:
           name: Playwright exec
           command: npx playwright test --config=./playwright.config.ts
+      - run:
+          name: Generate Test Execution Date and Time
+          command: |
+            export CURRENT_DATE_TIME=$(date -d "5 hours 30 minutes" +'%Y-%m-%d %H:%M:%S')
+            echo "Current Date and Time is = $CURRENT_DATE_TIME"
+            echo "export REPORT_GENERATED_DATE=\"$CURRENT_DATE_TIME\" " >> $BASH_ENV
+          when: always  
+      - run:
+          name: Upload Report to Test Rail
+          command: |
+            echo "Uploading Report to Test Rail"
+            source "$BASH_ENV"
+            echo "Project: $PROJECT"
+            echo "Username: $TESTRAIL_USERNAME"
+            echo "Password: $TESTRAIL_PASSWORD"
+            echo "Report Date: $REPORT_GENERATED_DATE"
+            echo "File Path: ./test-results/junit-report.xml"
+            trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
+          when: always  
       - store_artifacts:
-          path: ./test-results
-
+          path: ./playwright-report
+          destination: playwright-report-first
 workflows:
   run-e2e-test:
-    triggers:
-      - schedule:
-          cron: "15 12 * * *"  # This cron expression runs the job daily at 12:15 PM UTC (5:45 PM IST)
-          filters:
-            branches:
-              only:
-                - main
     jobs:
       - run-test:
           filters:

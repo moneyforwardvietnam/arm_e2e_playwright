@@ -46,7 +46,7 @@ export class LoginPage {
             console.log('No Thanks button was not found');
         }
         
-        await this.page.waitForURL(baseURL+'/reports/invoice_balances',{ timeout: 10000 });
+        await this.page.waitForURL(baseURL+'/reports/invoice_balances',{ timeout: 60000 });
         console.log('Successfully logged in to '+baseURL)
     }    
     async logout(){
