@@ -16,8 +16,7 @@ jobs:
           command: npm install
       - run:
           name: Playwright browser install
-          command: sudo apt-get update && sudo apt-get install -y playwright
-          timeout: 20m
+          command: npx playwright install --with-deps
       - run:
           name: Install pip
           command: |
