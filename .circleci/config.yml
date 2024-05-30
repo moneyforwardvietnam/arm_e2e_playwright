@@ -57,4 +57,4 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: ARM-6577-CommonFunction-Testrail-integration
+              only: main
