@@ -57,4 +57,4 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: prod_check
+              only: main
