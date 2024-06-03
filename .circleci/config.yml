@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.1.0
+  slack: circleci/slack@4.1
 
 jobs:
   run-test:
@@ -9,6 +10,23 @@ jobs:
     resource_class: moneyforwardvietnam/qa-runner
 
     steps:
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "ARM E2E Test Execution was started",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
       - node/install
       - checkout
       - run:
@@ -47,10 +65,28 @@ jobs:
             echo "Report Date: $REPORT_GENERATED_DATE"
             echo "File Path: ./test-results/junit-report.xml"
             trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
-          when: always  
+          when: always
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "ARM E2E Test Execution was completed successfully",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
       - store_artifacts:
           path: ./playwright-report
           destination: playwright-report-first
+          
 workflows:
   run-e2e-test:
     jobs:
@@ -58,3 +94,4 @@ workflows:
           filters:
             branches:
               only: main
+          context: arm-e2e-slack-secrets
