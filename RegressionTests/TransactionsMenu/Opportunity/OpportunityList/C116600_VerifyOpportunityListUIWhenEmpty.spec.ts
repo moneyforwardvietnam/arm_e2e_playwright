@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/OpportunityPages.page'
 
 test('C116600_Verify Opportunity List UI when empty', async ({ page }) => {
+  test.info().annotations.push({ type: "test_id", description: "C116600" });
   //Opportunity script
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();
