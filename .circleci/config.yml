@@ -75,7 +75,7 @@ jobs:
                   "fields": [
                     {
                       "type": "plain_text",
-                      "text": "ARM E2E Test Execution was completed successfully.",
+                      "text": "ARM E2E Test Execution was completed.",
                       "emoji": true
                     }
                   ]
