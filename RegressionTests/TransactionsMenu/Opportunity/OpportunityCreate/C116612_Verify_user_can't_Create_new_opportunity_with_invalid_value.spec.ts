@@ -3,6 +3,8 @@ import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/Opportunity
 
 test('C116612_Verify user cant Create new opportunity with invalid value', async ({ page }) => {
   test.info().annotations.push({ type: "test_id", description: "C116612" });
+  const testName = test.info().title;
+  console.log(`${testName} - started`);
   //Opportunity creation
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();

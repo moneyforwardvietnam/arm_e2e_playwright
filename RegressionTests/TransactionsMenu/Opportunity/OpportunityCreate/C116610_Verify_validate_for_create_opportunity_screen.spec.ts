@@ -3,6 +3,8 @@ import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/Opportunity
 
 test('C116610_Verify validate for create opportunity screen', async ({ page }) => {
   test.info().annotations.push({ type: "test_id", description: "C116610" });
+  const testName = test.info().title;
+  console.log(`${testName} - started`);
   //Navigate to Opportunity  
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();

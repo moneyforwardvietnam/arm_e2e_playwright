@@ -3,6 +3,8 @@ import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/Opportunity
 
 test('C116600_Verify Opportunity List UI when empty', async ({ page }) => {
   test.info().annotations.push({ type: "test_id", description: "C116600" });
+  const testName = test.info().title;
+  console.log(`${testName} - started`);
   //Opportunity script
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();

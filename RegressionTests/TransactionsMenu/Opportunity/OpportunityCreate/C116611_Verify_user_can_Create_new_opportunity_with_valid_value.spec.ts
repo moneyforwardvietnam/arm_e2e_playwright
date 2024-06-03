@@ -3,6 +3,8 @@ import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/Opportunity
 
 test('C116611_Verify user can Create new opportunity with valid value', async ({ page }) => {
   test.info().annotations.push({ type: "test_id", description: "C116611" });
+  const testName = test.info().title;
+  console.log(`${testName} - started`);
   //Opportunity creation
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();
