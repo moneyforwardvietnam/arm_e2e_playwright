@@ -3,6 +3,7 @@ import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/Opportunity
 const PlaceHolder = '選択してください'  //PlaceHolder for input when its empty
 
 test('C116609_Verify_initial_UI_of_opportunity_create_screen', async ({ page }) => {
+  test.info().annotations.push({ type: "test_id", description: "C116609" });
   //Navigate to Opportunity  
   const opportunityPage = new OpportunityPage(page);
   await opportunityPage.NavigateToOpportunity();

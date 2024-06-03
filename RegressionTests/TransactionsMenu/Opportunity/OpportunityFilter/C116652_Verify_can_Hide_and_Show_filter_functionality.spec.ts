@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/OpportunityPages.page';
 
 test('C116652_Verify can Hide and Show filter functionality', async ({ page }) => {
+  test.info().annotations.push({ type: "test_id", description: "C116652" });
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();
   //Initial Show Filter

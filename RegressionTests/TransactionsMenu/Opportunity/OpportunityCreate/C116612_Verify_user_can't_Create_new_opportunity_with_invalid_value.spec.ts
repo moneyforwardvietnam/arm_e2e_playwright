@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/OpportunityPages.page'
 
 test('C116612_Verify user cant Create new opportunity with invalid value', async ({ page }) => {
+  test.info().annotations.push({ type: "test_id", description: "C116612" });
   //Opportunity creation
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();

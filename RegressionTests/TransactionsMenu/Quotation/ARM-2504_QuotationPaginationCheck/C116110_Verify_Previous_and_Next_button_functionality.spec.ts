@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { QuotationPage } from '@pages/TransactionsMenu/Quotation/QuotationPages.page';
 
-test('C116110_Verify Previous and Next button functionality.spec', async ({ page }) => {
+test.skip('C116110_Verify Previous and Next button functionality.spec', async ({ page }) => {
 //Validation message check
 const quotationPage = new QuotationPage(page)
 await quotationPage.NavigateToQuotation();

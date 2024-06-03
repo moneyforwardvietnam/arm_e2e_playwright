@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/OpportunityPages.page'
 
 test('C116610_Verify validate for create opportunity screen', async ({ page }) => {
+  test.info().annotations.push({ type: "test_id", description: "C116610" });
   //Navigate to Opportunity  
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();
