@@ -93,5 +93,5 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: ARM-6597-CommonFunction-Slack-integration
+              only: main
           context: arm-e2e-slack-secrets
