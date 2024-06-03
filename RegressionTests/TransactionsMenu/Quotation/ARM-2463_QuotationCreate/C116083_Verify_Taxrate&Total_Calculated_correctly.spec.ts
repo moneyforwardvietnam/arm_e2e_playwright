@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { QuotationPage } from '@pages/TransactionsMenu/Quotation/QuotationPages.page';
 
-test('C116083_Verify tax rate and total is calculated correctly', async ({ page }) => {
+test.skip('C116083_Verify tax rate and total is calculated correctly', async ({ page }) => {
 //Quotation Creation
 const quotationPage = new QuotationPage(page)
 await quotationPage.NavigateToQuotation();

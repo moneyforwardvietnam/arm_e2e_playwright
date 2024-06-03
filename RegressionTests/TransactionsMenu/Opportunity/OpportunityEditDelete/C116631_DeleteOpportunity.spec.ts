@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 import { OpportunityPage } from '@pages/TransactionsMenu/Opportunity/OpportunityPages.page';
 
 test('C116631_Verify user can Delete Opportunity when Opportunity not created invoice', async ({ page }) => {
+  test.info().annotations.push({ type: "test_id", description: "C116631" });
+  const testName = test.info().title;
+  console.log(`${testName} - started`);
   //Opportunity script
   const opportunityPage = new OpportunityPage(page)
   await opportunityPage.NavigateToOpportunity();

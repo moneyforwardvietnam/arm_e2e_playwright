@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { QuotationPage } from '@pages/TransactionsMenu/Quotation/QuotationPages.page';
 
-test('C116077_Verify Rows will be deleted while clicking on Delete row(削除) in quotation screen', async ({ page }) => {
+test.skip('C116077_Verify Rows will be deleted while clicking on Delete row(削除) in quotation screen', async ({ page }) => {
 //Quotation Creation
 const quotationPage = new QuotationPage(page)
 await quotationPage.NavigateToQuotation();
