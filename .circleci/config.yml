@@ -83,9 +83,12 @@ jobs:
               ]
             }
           event: always
+      - run:
+          name: Generate Allure report
+          command: allure generate allure-results --output allure-report
       - store_artifacts:
-          path: ./playwright-report
-          destination: playwright-report-first
+          path: allure-report
+          destination: allure-report
           
 workflows:
   run-e2e-test:
@@ -93,5 +96,5 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: main
+              only: AllureReportCircleCI
           context: arm-e2e-slack-secrets
