@@ -45,11 +45,6 @@ jobs:
           name: Install TestRail CLI
           command: python3 -m pip install trcli
       - run:
-          name: Install Allure CLI
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y allure          
-      - run:
           name: Playwright exec
           command: npx playwright test --config=./playwright.config.ts
       - run:
@@ -88,12 +83,9 @@ jobs:
               ]
             }
           event: always
-      - run:
-          name: Generate Allure report
-          command: allure generate allure-results --output allure-report
       - store_artifacts:
-          path: allure-report
-          destination: allure-report
+          path: ./playwright-report
+          destination: playwright-report-first
           
 workflows:
   run-e2e-test:
