@@ -7,7 +7,7 @@ orbs:
 jobs:
   run-test:
     machine: true
-    resource_class: moneyforwardvietnam/qa-runner
+    resource_class: moneyforward/qa-runner
 
     steps:
       - slack/notify:
@@ -93,5 +93,5 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: main
+              only: migrate
           context: arm-e2e-slack-secrets
