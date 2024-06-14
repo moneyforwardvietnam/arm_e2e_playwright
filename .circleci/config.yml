@@ -93,5 +93,5 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: main
+              only: qa-runner-migrate
           context: arm-e2e-slack-secrets
