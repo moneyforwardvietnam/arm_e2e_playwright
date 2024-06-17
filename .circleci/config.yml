@@ -85,7 +85,10 @@ jobs:
                       "type": "plain_text",
                       "text": "ARM E2E Test Execution was completed.",
                       "emoji": true
-                    }
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "_Job URL:_\n<$CIRCLE_BUILD_URL|Click here>"
                   ]
                 }
               ]
@@ -100,4 +103,4 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: main
+              only: qa-runner-migrate
