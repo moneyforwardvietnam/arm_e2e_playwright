@@ -24,7 +24,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Job URL*: <$CIRCLE_BUILD_URL>"
+                      "text": "ARM E2E Test Execution was started... \n Go to <$CIRCLE_BUILD_URL> to view the Job"
                     }
                   ]
                 }
