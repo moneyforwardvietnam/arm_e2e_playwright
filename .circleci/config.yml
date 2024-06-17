@@ -10,6 +10,23 @@ jobs:
     resource_class: moneyforward/qa-runner
 
     steps:
+      - slack/notify:
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "ARM E2E Test Execution was started...",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always    
       - node/install
       - checkout
       - run:
@@ -60,4 +77,3 @@ workflows:
           filters:
             branches:
               only: qa-runner-migrate
-          context: arm-e2e-slack-secrets
