@@ -21,6 +21,10 @@ jobs:
                       "type": "plain_text",
                       "text": "ARM E2E Test Execution was started...",
                       "emoji": true
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "_Job URL:_\n<$CIRCLE_BUILD_URL|Click here>"
                     }
                   ]
                 }
@@ -85,10 +89,7 @@ jobs:
                       "type": "plain_text",
                       "text": "ARM E2E Test Execution was completed.",
                       "emoji": true
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "_Job URL:_\n<$CIRCLE_BUILD_URL|Click here>"
+                    }
                   ]
                 }
               ]
