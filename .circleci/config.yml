@@ -13,7 +13,7 @@ jobs:
       - slack/notify:
           custom: |
             {
-              "text": "ARM E2E Test Execution was started...\nGo to <$CIRCLE_BUILD_URL> to view the Job"
+              "text": "ARM E2E Test Execution was started...\nGo to <$CIRCLE_BUILD_URL> to view the Job."
             }
           event: always
       - node/install
@@ -63,26 +63,16 @@ jobs:
             echo "File Path: ./test-results/junit-report.xml"
             trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
           when: always
-      - slack/notify:
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "ARM E2E Test Execution was completed.",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
       - store_artifacts:
           path: ./allure-report
           destination: allure-report
+          when: always
+      - slack/notify:
+          custom: |
+            {
+              "text": "ARM E2E Test Execution was completed. <${CIRCLE_BUILD_URL}/artifacts/0/allure-report/index.html|View Report"
+            }
+          event: always
 workflows:
   run-e2e-test:
     jobs:
