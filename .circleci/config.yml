@@ -70,7 +70,7 @@ jobs:
       - slack/notify:
           custom: |
             {
-              "text": "ARM E2E Test Execution was completed. <${CIRCLE_BUILD_URL}/artifacts/0/allure-report/index.html|View Report"
+              "text": "ARM E2E Test Execution was completed."
             }
           event: always
 workflows:
