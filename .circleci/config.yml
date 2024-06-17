@@ -26,7 +26,7 @@ jobs:
                 }
               ]
             }
-          event: always    
+          event: always
       - node/install
       - checkout
       - run:
@@ -45,6 +45,9 @@ jobs:
           name: Install TestRail CLI
           command: python3 -m pip install trcli
       - run:
+          name: Install Allure Commandline
+          command: npm install -g allure-commandline --save-dev
+      - run:
           name: Playwright exec
           command: npx playwright test --config=./playwright.config.ts
       - run:
@@ -53,7 +56,11 @@ jobs:
             export CURRENT_DATE_TIME=$(date -d "5 hours 30 minutes" +'%Y-%m-%d %H:%M:%S')
             echo "Current Date and Time is = $CURRENT_DATE_TIME"
             echo "export REPORT_GENERATED_DATE=\"$CURRENT_DATE_TIME\" " >> $BASH_ENV
-          when: always  
+          when: always
+      - run:
+          name: Generate Allure Report
+          command: |
+            allure generate ./allure-results --clean -o ./allure-report  
       - run:
           name: Upload Report to Test Rail
           command: |
@@ -85,7 +92,10 @@ jobs:
           event: always
       - store_artifacts:
           path: ./playwright-report
-          destination: playwright-report-first          
+          destination: playwright-report-first
+      - store_artifacts:
+          path: ./allure-report
+          destination: allure-report
 workflows:
   run-e2e-test:
     jobs:
