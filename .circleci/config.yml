@@ -13,17 +13,7 @@ jobs:
       - slack/notify:
           custom: |
             {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "ARM E2E Test Execution was started... \n Go to <$CIRCLE_BUILD_URL> to view the Job"
-                    }
-                  ]
-                }
-              ]
+              "text": "ARM E2E Test Execution was started...\nGo to <$CIRCLE_BUILD_URL> to view the Job"
             }
           event: always
       - node/install
