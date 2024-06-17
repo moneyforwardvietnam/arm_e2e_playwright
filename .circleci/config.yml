@@ -91,9 +91,6 @@ jobs:
             }
           event: always
       - store_artifacts:
-          path: ./playwright-report
-          destination: playwright-report-first
-      - store_artifacts:
           path: ./allure-report
           destination: allure-report
 workflows:
@@ -102,4 +99,4 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: qa-runner-migrate
+              only: main
