@@ -24,7 +24,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "_Job URL:_\n<$CIRCLE_BUILD_URL|Click here>"
+                      "text": "*Job URL*: <$CIRCLE_BUILD_URL>"
                     }
                   ]
                 }
