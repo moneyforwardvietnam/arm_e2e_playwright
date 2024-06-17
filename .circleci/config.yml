@@ -18,11 +18,6 @@ jobs:
                   "type": "section",
                   "fields": [
                     {
-                      "type": "plain_text",
-                      "text": "ARM E2E Test Execution was started...",
-                      "emoji": true
-                    },
-                    {
                       "type": "mrkdwn",
                       "text": "ARM E2E Test Execution was started... \n Go to <$CIRCLE_BUILD_URL> to view the Job"
                     }
