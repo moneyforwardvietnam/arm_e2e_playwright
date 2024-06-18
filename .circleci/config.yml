@@ -79,4 +79,4 @@ workflows:
       - run-test:
           filters:
             branches:
-              only: qa-runner-migrate
+              only: main
