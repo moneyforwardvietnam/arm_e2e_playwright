@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
  */
 require('dotenv').config();
 dotenv.config({
-  path: './src/env/staging.env'
+  path: './src/env/production.env'
 });
 /**
  * See https://playwright.dev/docs/test-configuration.
