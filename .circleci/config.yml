@@ -7,24 +7,13 @@ orbs:
 jobs:
   run-test:
     machine: true
-    resource_class: moneyforwardvietnam/qa-runner
+    resource_class: moneyforward/qa-runner
 
     steps:
       - slack/notify:
           custom: |
             {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "ARM E2E Test Execution was started...",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
+              "text": "ARM E2E Test Execution was started...\nGo to <$CIRCLE_BUILD_URL> to view the Job."
             }
           event: always
       - node/install
@@ -45,6 +34,9 @@ jobs:
           name: Install TestRail CLI
           command: python3 -m pip install trcli
       - run:
+          name: Install Allure Commandline
+          command: npm install -g allure-commandline --save-dev
+      - run:
           name: Playwright exec
           command: npx playwright test --config=./playwright.config.ts
       - run:
@@ -53,6 +45,11 @@ jobs:
             export CURRENT_DATE_TIME=$(date -d "5 hours 30 minutes" +'%Y-%m-%d %H:%M:%S')
             echo "Current Date and Time is = $CURRENT_DATE_TIME"
             echo "export REPORT_GENERATED_DATE=\"$CURRENT_DATE_TIME\" " >> $BASH_ENV
+          when: always
+      - run:
+          name: Generate Allure Report
+          command: |
+            allure generate ./allure-results --clean -o ./allure-report
           when: always  
       - run:
           name: Upload Report to Test Rail
@@ -66,27 +63,16 @@ jobs:
             echo "File Path: ./test-results/junit-report.xml"
             trcli -n -h "https://moneyforward.tmxtestrail.com" --project "ARM - Accounts Receivable Management" --username $TESTRAIL_USERNAME --password $TESTRAIL_PASSWORD parse_junit --case-matcher "property" --title "Playwright Automated Test Run on $REPORT_GENERATED_DATE IST" -f "./test-results/junit-report.xml" --suite-name "Regression Test"
           when: always
+      - store_artifacts:
+          path: ./allure-report
+          destination: allure-report
+          when: always
       - slack/notify:
           custom: |
             {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "ARM E2E Test Execution was completed.",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
+              "text": "ARM E2E Test Execution was completed."
             }
           event: always
-      - store_artifacts:
-          path: ./playwright-report
-          destination: playwright-report-first
-          
 workflows:
   run-e2e-test:
     jobs:
@@ -94,4 +80,3 @@ workflows:
           filters:
             branches:
               only: main
-          context: arm-e2e-slack-secrets
