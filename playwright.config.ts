@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
  */
 require('dotenv').config();
 dotenv.config({
-  path: './src/env/production.env'
+  path: './src/env/staging.env'
 });
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -21,7 +21,7 @@ export default defineConfig({
   //         maxDiffPixels: 10,
   //     },
   // },
-  testDir: './RegressionTests/TransactionsMenu/Opportunity',
+  testDir: './RegressionTests/Common',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
